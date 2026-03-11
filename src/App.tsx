@@ -207,6 +207,67 @@ export default function App() {
         </motion.div>
       </section>
 
+      {/* Missão, Visão e Valores */}
+      <section id="sobre" className="py-48 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-brand-primary/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/4" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-24">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-brand-primary font-bold tracking-[0.3em] uppercase text-xs mb-4 block"
+            >
+              Quem Somos
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-black text-brand-dark-alt tracking-tighter"
+            >
+              Nosso Propósito
+            </motion.h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: Factory,
+                title: 'Missão',
+                text: 'Produzir componentes plásticos industriais com qualidade e estabilidade de processo, atuando como parceiro produtivo de indústrias que precisam ampliar capacidade, reduzir lead time logístico e garantir fornecimento confiável para suas operações.',
+              },
+              {
+                icon: Globe,
+                title: 'Visão',
+                text: 'Ser referência no Nordeste em produção industrial por injeção plástica para a cadeia automotiva e industrial.',
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Valores',
+                text: 'Atuamos com foco em confiabilidade de fornecimento, disciplina industrial e estabilidade de processo, garantindo qualidade consistente na produção. Valorizamos rastreabilidade, responsabilidade operacional e parcerias de longo prazo com nossos clientes, buscando melhoria contínua para aumentar eficiência e competitividade.',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15, duration: 0.6 }}
+                className="group p-10 rounded-[2rem] bg-brand-muted/50 border border-brand-primary/5 hover:border-brand-primary/20 hover:shadow-[0_20px_60px_-10px_rgba(128,185,60,0.12)] transition-all duration-500"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-8 group-hover:bg-brand-primary/20 transition-colors">
+                  <item.icon className="w-7 h-7 text-brand-primary" />
+                </div>
+                <h3 className="text-2xl font-black text-brand-dark-alt mb-4">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed font-medium">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 2. Pilares (Stats) - Modern Clean Cards */}
       <section id="pilares" className="py-48 bg-brand-muted relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
