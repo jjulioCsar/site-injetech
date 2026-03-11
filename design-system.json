@@ -1,0 +1,98 @@
+{
+  "name": "Injetech x Techplast x Leve Cannabis - Hybrid Design System",
+  "version": "1.0.0",
+  "tokens": {
+    "colors": {
+      "brand": {
+        "primary": {
+          "value": "#80b93c",
+          "hex": "#80b93c",
+          "description": "Verde claro, usado para CTAs e destaques."
+        },
+        "dark": {
+          "value": "#387130",
+          "hex": "#387130",
+          "description": "Verde escuro, usado para fundos e textos principais."
+        },
+        "accent": {
+          "value": "#dce353",
+          "hex": "#dce353",
+          "description": "Amarelo/Lima, usado para gradientes e detalhes."
+        },
+        "light": {
+          "value": "#ffffff",
+          "hex": "#ffffff",
+          "description": "Cor de fundo principal."
+        },
+        "muted": {
+          "value": "#f4f8f1",
+          "hex": "#f4f8f1",
+          "description": "Cor de fundo secundária para seções (levemente esverdeada)."
+        }
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "sans": {
+          "value": "'Outfit', sans-serif",
+          "description": "Fonte principal para todo o site, moderna e tecnológica."
+        }
+      },
+      "weights": {
+        "light": "300",
+        "regular": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700",
+        "black": "800"
+      }
+    },
+    "spacing": {
+      "section": {
+        "py": "6rem",
+        "md-py": "8rem"
+      },
+      "container": {
+        "max-width": "80rem",
+        "px": "1.5rem"
+      }
+    },
+    "radii": {
+      "card": "1.5rem",
+      "button": "9999px",
+      "section": "3rem"
+    },
+    "shadows": {
+      "card": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      "glow": "0 10px 15px -3px rgba(128, 185, 60, 0.3)"
+    }
+  },
+  "components": {
+    "navbar": {
+      "style": "Glassmorphism (Leve Cannabis)",
+      "behavior": "Sticky with backdrop-blur on scroll"
+    },
+    "hero": {
+      "style": "Full screen video background with dark overlay",
+      "animations": "Parallax scroll on text, fade in"
+    },
+    "buttons": {
+      "primary": "Rounded full, brand primary color, scale on hover, glow shadow"
+    },
+    "cards": {
+      "style": "Large border radius (3xl), subtle borders, hover lift effect"
+    }
+  },
+  "structure": {
+    "sections": [
+      "Hero (Vídeo Fundo)",
+      "Pilares (Números/Estatísticas)",
+      "Customização de Projetos (Integração/Desenvolvimento)",
+      "Logística (Armazenamento/Distribuição/Frota)",
+      "Localização (Mapa)",
+      "Mural da Equipe (Carrossel Infinito)",
+      "Footer"
+    ],
+    "base_reference": "techplastembalagens.com.br"
+  }
+}
