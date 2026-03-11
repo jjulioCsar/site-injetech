@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'; // Rebuild trigger for LFS video
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram } from 'lucide-react';
+import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+
+const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('Olá! Vim pelo site da Injetech e gostaria de saber mais sobre as soluções em injeção plástica.');
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [socialOpen, setSocialOpen] = useState(false);
   const { scrollY } = useScroll();
   
   // Parallax effect for hero text - moving slightly UP for a more natural feel
@@ -480,50 +483,104 @@ export default function App() {
           </p>
         </div>
 
-        {/* Infinite Scroll Marquee */}
+        {/* Infinite Scroll Marquee - Seamless Loop */}
         <div className="w-full overflow-hidden relative">
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-muted to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-muted to-transparent z-10" />
           
           <motion.div 
-            animate={{ x: [0, -2000] }}
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            className="flex gap-6 w-max px-6"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
+            className="flex gap-6 w-max"
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="w-72 aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-white flex-shrink-0 relative group">
-                <img 
-                  src={`https://images.unsplash.com/photo-${1500000000000 + i}?q=80&w=800&auto=format&fit=crop`} 
-                  alt="Equipe" 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span className="text-white font-bold text-lg">Especialista {i}</span>
+            {/* Original + Duplicate for seamless loop */}
+            {[...Array(2)].map((_, setIdx) =>
+              [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                <div key={`${setIdx}-${i}`} className="w-72 aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-white flex-shrink-0 relative group">
+                  <img 
+                    src={`https://images.unsplash.com/photo-${1500000000000 + i}?q=80&w=800&auto=format&fit=crop`} 
+                    alt="Equipe" 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <span className="text-white font-bold text-lg">Especialista {i}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </motion.div>
         </div>
       </section>
 
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-10 right-10 z-[100] flex flex-col gap-4">
-        <motion.a 
-          whileHover={{ scale: 1.1, x: -5 }}
+      {/* Floating Social Hub + Scroll to Top */}
+      <div className="fixed bottom-10 right-10 z-[100] flex flex-col items-end gap-4">
+        {/* Expandable Social Icons */}
+        <AnimatePresence>
+          {socialOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.8 }}
+              transition={{ duration: 0.25 }}
+              className="flex flex-col gap-3 mb-2"
+            >
+              <motion.a
+                whileHover={{ scale: 1.15, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 bg-[#25D366] rounded-2xl shadow-[0_8px_25px_rgba(37,211,102,0.3)] flex items-center justify-center text-white"
+                title="WhatsApp"
+              >
+                <Phone className="w-7 h-7" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.15, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                href="https://www.instagram.com/injetechsolucoes/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-2xl shadow-[0_8px_25px_rgba(220,39,67,0.3)] flex items-center justify-center text-white"
+                title="Instagram"
+              >
+                <Instagram className="w-7 h-7" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.15, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                href="https://www.linkedin.com/company/injetech-solu%C3%A7%C3%B5es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 bg-[#0A66C2] rounded-2xl shadow-[0_8px_25px_rgba(10,102,194,0.3)] flex items-center justify-center text-white"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-7 h-7" />
+              </motion.a>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Main Toggle Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          href="https://wa.me/5582993412854"
-          target="_blank"
-          className="w-16 h-16 bg-[#25D366] rounded-2xl shadow-[0_10px_30px_rgba(37,211,102,0.3)] flex items-center justify-center text-white"
+          onClick={() => setSocialOpen(!socialOpen)}
+          className={`w-16 h-16 rounded-2xl shadow-[0_10px_30px_rgba(128,185,60,0.3)] flex items-center justify-center text-white transition-all duration-300 ${
+            socialOpen ? 'bg-slate-800 rotate-45' : 'bg-brand-primary'
+          }`}
         >
-          <Phone className="w-8 h-8" />
-        </motion.a>
+          <MessageCircle className={`w-8 h-8 transition-transform duration-300 ${socialOpen ? 'rotate-[-45deg]' : ''}`} />
+        </motion.button>
+
+        {/* Scroll to Top */}
         <motion.button 
           whileHover={{ scale: 1.1, x: -5 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="w-16 h-16 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center text-brand-dark"
+          className="w-14 h-14 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center text-brand-dark"
         >
-          <ArrowRight className="w-8 h-8 -rotate-90" />
+          <ArrowRight className="w-7 h-7 -rotate-90" />
         </motion.button>
       </div>
 
@@ -543,11 +600,15 @@ export default function App() {
                 Elevando o padrão da indústria plástica nacional através de inovação tecnológica e processos de alta performance.
               </p>
               <div className="flex gap-4">
-                {[Globe, Instagram, Users].map((Icon, idx) => (
-                  <a key={idx} href="#" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-brand-primary transition-all hover:-translate-y-1">
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a href="https://www.linkedin.com/company/injetech-solu%C3%A7%C3%B5es/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#0A66C2] transition-all hover:-translate-y-1">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/injetechsolucoes/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] transition-all hover:-translate-y-1">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#25D366] transition-all hover:-translate-y-1">
+                  <Phone className="w-5 h-5" />
+                </a>
               </div>
             </div>
 
@@ -574,10 +635,10 @@ export default function App() {
 
             <div>
               <h4 className="text-brand-primary font-black uppercase tracking-widest text-xs mb-8">Contato Direto</h4>
-              <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-                <p className="text-brand-accent font-black text-2xl mb-2">(82) 99341-2854</p>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block p-6 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors group">
+                <p className="text-brand-accent font-black text-2xl mb-2 group-hover:text-brand-primary transition-colors">(11) 93146-3758</p>
                 <p className="text-white/40 text-xs uppercase tracking-widest font-bold">Atendimento via WhatsApp</p>
-              </div>
+              </a>
             </div>
           </div>
 
