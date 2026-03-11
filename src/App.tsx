@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // Rebuild trigger for LFS video
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram } from 'lucide-react';
 
