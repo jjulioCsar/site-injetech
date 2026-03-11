@@ -129,7 +129,7 @@ export default function App() {
             playsInline 
             className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
           >
-            <source src="/video.mp4" type="video/mp4" />
+            <source src="https://github.com/jjulioCsar/site-injetech/raw/main/public/video.mp4" type="video/mp4" />
           </video>
           {/* Advanced Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark via-transparent to-brand-primary-dark/20" />
