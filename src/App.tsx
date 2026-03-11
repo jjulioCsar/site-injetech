@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('Olá! Vim pelo site da Injetech e gostaria de saber mais sobre as soluções em injeção plástica.');
+const MAPS_URL = 'https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +51,7 @@ export default function App() {
             <img 
               src="/logo.png" 
               alt="Injetech Logo" 
-              className={`h-9 md:h-11 w-auto transition-all duration-500 scale-110 ${
+              className={`h-12 md:h-14 w-auto transition-all duration-500 ${
                 isScrolled || mobileMenuOpen ? 'brightness-100' : 'brightness-0 invert'
               }`}
             />
@@ -444,7 +445,7 @@ export default function App() {
                 <MapPin className="w-10 h-10 text-brand-primary mb-6" />
                 <h4 className="text-xl font-extrabold text-brand-dark mb-2">Unidade Fabril</h4>
                 <p className="text-slate-600 font-medium mb-6">V. Secundaria 3, N:57 - Galpão 08 W, Qd 05 - Tabuleiro do Martins, Maceió - AL, 57062-415</p>
-                <a href="https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">
                   Ver no Google Maps <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -457,7 +458,7 @@ export default function App() {
             
             <div className="lg:col-span-2 h-[500px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50 relative group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31517.9103348633!2d-35.8016463!3d-9.5636048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70149021e102941%3A0x6b774612b774640!2sTabuleiro%20do%20Martins%2C%20Macei%C3%B3%20-%20AL!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.5!2d-35.7577!3d-9.5899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70149021e102941%3A0x6b774612b774640!2sV.%20Secundaria%203%2C%2057%20-%20Tabuleiro%20do%20Martins%2C%20Macei%C3%B3%20-%20AL%2C%2057062-415!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -465,7 +466,16 @@ export default function App() {
                 loading="lazy" 
                 className="grayscale transition-all duration-700 group-hover:grayscale-0"
               ></iframe>
-              <div className="absolute inset-0 pointer-events-none border-[20px] border-white/10" />
+              <a 
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-dark/20"
+              >
+                <span className="px-6 py-3 bg-white rounded-full font-bold text-brand-dark text-sm shadow-xl flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-brand-primary" /> Abrir no Google Maps
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -594,7 +604,7 @@ export default function App() {
               <img 
                 src="/logo.png" 
                 alt="Injetech Logo" 
-                className="h-12 w-auto brightness-0 invert opacity-100 mb-8"
+                className="h-16 w-auto brightness-0 invert opacity-100 mb-8"
               />
               <p className="text-white/50 leading-relaxed mb-8 font-medium">
                 Elevando o padrão da indústria plástica nacional através de inovação tecnológica e processos de alta performance.
@@ -625,12 +635,17 @@ export default function App() {
 
             <div id="contato">
               <h4 className="text-brand-primary font-black uppercase tracking-widest text-xs mb-8">Nossa Unidade</h4>
-              <ul className="space-y-6 text-white/50 text-sm font-medium">
-                <li className="flex gap-4">
-                  <MapPin className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                  <span>Unidade Fabril<br/><span className="text-white/30">Maceió, AL</span></span>
-                </li>
-              </ul>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="block group">
+                <ul className="space-y-4 text-white/50 text-sm font-medium">
+                  <li className="flex gap-4">
+                    <MapPin className="w-5 h-5 text-brand-primary flex-shrink-0" />
+                    <span>Unidade Fabril<br/><span className="text-white/30 group-hover:text-brand-primary transition-colors">V. Secundaria 3, N:57 - Galpão 08 W, Qd 05<br/>Tabuleiro do Martins, Maceió - AL<br/>57062-415</span></span>
+                  </li>
+                </ul>
+                <span className="inline-flex items-center gap-2 text-brand-primary font-bold mt-4 text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                  Ver no Maps <ArrowRight className="w-3 h-3" />
+                </span>
+              </a>
             </div>
 
             <div>
