@@ -20,6 +20,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
@@ -27,6 +28,9 @@
     background-color: var(--color-brand-light);
     color: #0f1710;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 }
 
