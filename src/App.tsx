@@ -1,14 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle, Zap, Rocket, BarChart3, Shield, Layers, Droplets } from 'lucide-react';
+import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle, Zap, Rocket, BarChart3, Shield, Layers, Droplets, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('Olá! Vim pelo site da Injetech e gostaria de saber mais sobre as soluções em injeção plástica.');
 const MAPS_URL = 'https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58';
+
+const logisticsImages = [
+  '/CARROSSEL LOGISTICA/Gemini_Generated_Image_b8eqgmb8eqgmb8eq.png',
+  '/CARROSSEL LOGISTICA/Gemini_Generated_Image_h9kmknh9kmknh9km.png',
+  '/CARROSSEL LOGISTICA/Gemini_Generated_Image_hfr9urhfr9urhfr9.png'
+];
+
+const teamImages = [
+  { src: '/CARROSSEL PESSOAS/_DSC0375.jpg', label: 'Engenharia de Processos' },
+  { src: '/CARROSSEL PESSOAS/_DSC2159.jpg', label: 'Controle de Qualidade' },
+  { src: '/CARROSSEL PESSOAS/mural-12.webp', label: 'Operação Especializada' },
+  { src: '/CARROSSEL PESSOAS/mural-3.webp', label: 'Logística Avançada' },
+  { src: '/CARROSSEL PESSOAS/mural-5.webp', label: 'Time de Manutenção' },
+  { src: '/CARROSSEL PESSOAS/Gemini_Generated_Image_8fxyir8fxyir8fxy.png', label: 'Monitoramento 24h' },
+  { src: '/CARROSSEL PESSOAS/Gemini_Generated_Image_c8hh1qc8hh1qc8hh.png', label: 'Gestão Industrial' },
+  { src: '/CARROSSEL PESSOAS/Gemini_Generated_Image_cbxedscbxedscbxe.png', label: 'Suporte Técnico' },
+];
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
+  const [currentLogisticaSlide, setCurrentLogisticaSlide] = useState(0);
   const { scrollY } = useScroll();
   
   // Parallax effect for hero text - moving slightly UP for a more natural feel
@@ -21,6 +39,13 @@ export default function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLogisticaSlide((prev) => (prev + 1) % logisticsImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const navLinks = [
@@ -494,9 +519,7 @@ export default function App() {
                   </li>
                 ))}
               </ul>
-              <button className="px-8 py-4 rounded-full border-2 border-brand-dark text-brand-dark font-extrabold hover:bg-brand-dark hover:text-white transition-all">
-                Ver Portfólio de Peças
-              </button>
+
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 50, scale: 0.9 }}
@@ -507,7 +530,7 @@ export default function App() {
               <div className="absolute -inset-4 bg-brand-primary/5 rounded-[3rem] blur-2xl -z-10" />
               <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl overflow-hidden group">
                 <img 
-                  src="https://images.unsplash.com/photo-1580983546130-348f36544081?q=80&w=2070&auto=format&fit=crop" 
+                  src="/FOTO SOLUÇÕES INTEGRADAS.png" 
                   alt="Integração" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
@@ -614,20 +637,49 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-square md:aspect-[4/3] rounded-[3rem] overflow-hidden group shadow-2xl"
+              className="relative w-full aspect-[4/3] rounded-[3rem] overflow-hidden group shadow-2xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1586528116311-ad8ed7c508c0?q=80&w=2070&auto=format&fit=crop" 
-                alt="Frota" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
-              <div className="absolute bottom-10 left-10 right-10 p-8 glass-card rounded-[2rem] border-white/10">
-                <div className="flex items-center gap-4 mb-2">
-                  <div className="w-3 h-3 bg-brand-primary rounded-full animate-pulse" />
-                  <span className="text-xs font-black uppercase tracking-widest text-brand-dark">Status: Em Trânsito</span>
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={currentLogisticaSlide}
+                  src={logisticsImages[currentLogisticaSlide]} 
+                  alt={`Logística ${currentLogisticaSlide + 1}`} 
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
+                  className="w-full h-full object-cover" 
+                />
+              </AnimatePresence>
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent flex flex-col justify-end p-10">
+                {/* Carousel Controls */}
+                <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 flex justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setCurrentLogisticaSlide((prev) => (prev - 1 + logisticsImages.length) % logisticsImages.length); }}
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setCurrentLogisticaSlide((prev) => (prev + 1) % logisticsImages.length); }}
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
                 </div>
-                <div className="text-brand-dark font-bold">Monitoramento de frota ativo para todo o território nacional.</div>
+
+                <div className="flex justify-center mt-4">
+                  {/* Slide Dots */}
+                  <div className="flex gap-2">
+                    {logisticsImages.map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`w-2 h-2 rounded-full transition-all ${i === currentLogisticaSlide ? 'bg-brand-primary w-6' : 'bg-white/40'}`} 
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -713,15 +765,15 @@ export default function App() {
           >
             {/* Original + Duplicate for seamless loop */}
             {[...Array(2)].map((_, setIdx) =>
-              [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              teamImages.map((img, i) => (
                 <div key={`${setIdx}-${i}`} className="w-72 aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-white flex-shrink-0 relative group">
                   <img 
-                    src={`https://images.unsplash.com/photo-${1500000000000 + i}?q=80&w=800&auto=format&fit=crop`} 
-                    alt="Equipe" 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    src={img.src} 
+                    alt={img.label} 
+                    className="w-full h-full object-cover transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white font-bold text-lg">Especialista {i}</span>
+                    <span className="text-white font-bold text-lg">{img.label}</span>
                   </div>
                 </div>
               ))
