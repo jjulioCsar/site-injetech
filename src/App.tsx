@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle, Zap } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('Olá! Vim pelo site da Injetech e gostaria de saber mais sobre as soluções em injeção plástica.');
 const MAPS_URL = 'https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58';
@@ -292,12 +292,12 @@ export default function App() {
             </motion.h2>
           </div>
  
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: "+600", label: "Clientes Atendidos", sub: "Parcerias de confiança", icon: <Users className="w-6 h-6" /> },
-              { num: "200M", label: "Peças Ao Ano", sub: "Capacidade produtiva", icon: <Package className="w-6 h-6" /> },
-              { num: "+300", label: "Cidades Atendidas", sub: "Logística integrada", icon: <MapPin className="w-6 h-6" /> },
-              { num: "+18", label: "Estados Atendidos", sub: "Cobertura nacional", icon: <Globe className="w-6 h-6" /> }
+              { num: "24/7", label: "OPERAÇÃO", color: "border-brand-accent", icon: <Factory className="w-6 h-6" /> },
+              { num: "570T", label: "FORÇA INJEÇÃO", color: "border-brand-accent", icon: <Zap className="w-6 h-6" /> },
+              { num: "4.0", label: "INDÚSTRIA", color: "border-brand-primary", icon: <Cpu className="w-6 h-6" /> },
+              { num: "CIF", label: "FROTA PRÓPRIA", color: "border-brand-accent", icon: <Truck className="w-6 h-6" /> }
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -305,15 +305,14 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ y: -10, shadow: "0 25px 50px -12px rgba(0,0,0,0.1)" }}
-                className="bg-white p-10 rounded-[2.5rem] shadow-[0_15px_40px_rgba(0,0,10,0.03)] border border-slate-100 group transition-all"
+                className="bg-brand-dark p-10 rounded-2xl shadow-2xl relative group overflow-hidden border-b-4 transition-all hover:-translate-y-2"
+                style={{ borderColor: stat.color === 'border-brand-primary' ? '#80B93C' : '#FFB800' }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-brand-muted flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors">
                   {stat.icon}
                 </div>
-                <div className="text-5xl font-black text-brand-dark mb-2 tracking-tighter">{stat.num}</div>
-                <div className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-1">{stat.label}</div>
-                <div className="text-xs text-slate-400 font-medium">{stat.sub}</div>
+                <div className="text-5xl font-black text-brand-primary mb-3 tracking-tighter">{stat.num}</div>
+                <div className="text-sm font-bold text-white uppercase tracking-widest">{stat.label}</div>
               </motion.div>
             ))}
           </div>
