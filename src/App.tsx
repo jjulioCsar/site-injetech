@@ -163,8 +163,8 @@ export default function App() {
               <Cpu className="w-4 h-4" /> Indústria 4.0
             </span>
             
-            <h1 className="text-5xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter max-w-4xl mx-auto">
-              Alta Performance em{" "}
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter max-w-4xl mx-auto uppercase">
+              Alta Performance em&nbsp;
               <span className="relative inline-block">
                 <span className="relative z-10 text-gradient">Injeção Plástica</span>
                 <span className="absolute -bottom-2 left-0 w-full h-3 bg-brand-primary/20 blur-sm rounded-full" />
@@ -381,7 +381,7 @@ export default function App() {
             <img 
               src="/logo-tech.png" 
               alt="Tech Plast" 
-              className="h-32 md:h-48 w-auto object-contain" 
+              className="h-56 md:h-80 w-auto object-contain" 
             />
             <img 
               src="/logo-tamp.png" 
