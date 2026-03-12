@@ -24,12 +24,10 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { name: 'A Empresa', href: '#sobre' },
+    { name: 'Empresa', href: '#sobre' },
     { name: 'Parceria', href: '#parceria' },
-    { name: 'Benefícios', href: '#beneficios' },
-    { name: 'Pilares', href: '#pilares' },
-    { name: 'Setores', href: '#setores' },
-    { name: 'Customização', href: '#customizacao' },
+    { name: 'Soluções', href: '#customizacao' },
+    { name: 'Magnitude', href: '#pilares' },
     { name: 'Logística', href: '#logistica' },
     { name: 'Localização', href: '#localizacao' },
   ];
@@ -69,7 +67,7 @@ export default function App() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className={`px-4 py-2 text-sm font-semibold tracking-wide rounded-full transition-all hover:bg-brand-primary/10 ${
+                className={`px-3 py-1.5 text-xs lg:text-sm font-bold tracking-tight rounded-full transition-all hover:bg-brand-primary/10 ${
                   isScrolled || mobileMenuOpen ? 'text-slate-700' : 'text-white/90'
                 } hover:text-brand-primary`}
               >
@@ -152,7 +150,7 @@ export default function App() {
 
         <motion.div 
           style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 max-w-5xl mx-auto px-6 text-center pb-40"
+          className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-10 pb-20"
         >
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -163,7 +161,7 @@ export default function App() {
               <Cpu className="w-4 h-4" /> Indústria 4.0
             </span>
             
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter max-w-4xl mx-auto uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tighter max-w-4xl mx-auto uppercase">
               Alta Performance em&nbsp;
               <span className="relative inline-block">
                 <span className="relative z-10 text-gradient">Injeção Plástica</span>
@@ -171,7 +169,7 @@ export default function App() {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/70 mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
               Transformamos polímeros em inovação com precisão milimétrica e tecnologia de ponta para projetos de alta exigência.
             </p>
 
