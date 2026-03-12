@@ -163,9 +163,9 @@ export default function App() {
               <Cpu className="w-4 h-4" /> Indústria 4.0
             </span>
             
-            <h1 className="text-6xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
-              Alta Performance em<br/>
-              <span className="relative">
+            <h1 className="text-5xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter max-w-4xl mx-auto">
+              Alta Performance em{" "}
+              <span className="relative inline-block">
                 <span className="relative z-10 text-gradient">Injeção Plástica</span>
                 <span className="absolute -bottom-2 left-0 w-full h-3 bg-brand-primary/20 blur-sm rounded-full" />
               </span>
@@ -244,7 +244,7 @@ export default function App() {
               {
                 icon: Globe,
                 title: 'Visão',
-                text: 'Ser referência no Nordeste em produção industrial por injeção plástica para a cadeia automotiva e industrial.',
+                text: 'Ser referência em produção industrial de injeção plástica para a cadeia automotiva e industrial.',
               },
               {
                 icon: ShieldCheck,
@@ -376,22 +376,22 @@ export default function App() {
             <div className="w-24 h-2 bg-brand-primary mx-auto rounded-full" />
           </div>
 
-          {/* Group Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-32 mb-32">
+          {/* Group Logos - Fixed Larger Size */}
+          <div className="flex flex-wrap items-center justify-center gap-20 md:gap-32 mb-32">
             <img 
               src="/logo-tech.png" 
               alt="Tech Plast" 
-              className="h-24 md:h-32 w-auto transition-all duration-500 hover:scale-110" 
+              className="h-32 md:h-48 w-auto object-contain" 
             />
             <img 
               src="/logo-tamp.png" 
               alt="Tamp Plast" 
-              className="h-28 md:h-40 w-auto transition-all duration-500 hover:scale-110" 
+              className="h-40 md:h-56 w-auto object-contain" 
             />
             <img 
               src="/logo-injetech.png" 
               alt="Injetech" 
-              className="h-20 md:h-28 w-auto transition-all duration-500 hover:scale-110" 
+              className="h-24 md:h-36 w-auto object-contain" 
             />
           </div>
 
