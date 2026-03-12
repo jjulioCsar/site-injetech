@@ -6,20 +6,22 @@ const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('O
 const MAPS_URL = 'https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58';
 
 const logisticsImages = [
-  '/carrossel-logistica/Gemini_Generated_Image_b8eqgmb8eqgmb8eq.png',
-  '/carrossel-logistica/Gemini_Generated_Image_h9kmknh9kmknh9km.png',
-  '/carrossel-logistica/Gemini_Generated_Image_hfr9urhfr9urhfr9.png'
+  '/carrossel-logistica/Gemini_Generated_Image_b8eqgmb8eqgmb8eq.webp',
+  '/carrossel-logistica/Gemini_Generated_Image_h9kmknh9kmknh9km.webp',
+  '/carrossel-logistica/Gemini_Generated_Image_hfr9urhfr9urhfr9.webp'
 ];
 
 const teamImages = [
-  { src: '/carrossel-pessoas/mural-12.webp', label: 'Engenharia de Processos' },
+  { src: '/carrossel-pessoas/_DSC0375.webp', label: 'Engenharia de Processos' },
+  { src: '/carrossel-pessoas/_DSC2159.webp', label: 'Controle de Qualidade' },
+  { src: '/carrossel-pessoas/mural-12.webp', label: 'Operação Especializada' },
   { src: '/carrossel-pessoas/mural-3.webp', label: 'Logística Avançada' },
   { src: '/carrossel-pessoas/mural-5.webp', label: 'Time de Manutenção' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_8fxyir8fxyir8fxy.png', label: 'Monitoramento 24h' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_c8hh1qc8hh1qc8hh.png', label: 'Gestão Industrial' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_cbxedscbxedscbxe.png', label: 'Suporte Técnico' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_eln9dmeln9dmeln9.png', label: 'Controle de Qualidade' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_isz5ufisz5ufisz5.png', label: 'Engenharia de Moldes' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_8fxyir8fxyir8fxy.webp', label: 'Monitoramento 24h' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_c8hh1qc8hh1qc8hh.webp', label: 'Gestão Industrial' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_cbxedscbxedscbxe.webp', label: 'Suporte Técnico' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_eln9dmeln9dmeln9.webp', label: 'Controle de Qualidade' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_isz5ufisz5ufisz5.webp', label: 'Engenharia de Moldes' },
 ];
 
 export default function App() {
@@ -530,7 +532,7 @@ export default function App() {
               <div className="absolute -inset-4 bg-brand-primary/5 rounded-[3rem] blur-2xl -z-10" />
               <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl overflow-hidden group">
                 <img 
-                  src="/solucoes-integradas.png" 
+                  src="/solucoes-integradas.webp" 
                   alt="Integração" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
