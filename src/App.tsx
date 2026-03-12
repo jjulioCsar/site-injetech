@@ -12,14 +12,14 @@ const logisticsImages = [
 ];
 
 const teamImages = [
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_8fxyir8fxyir8fxy.png', label: 'Engenharia de Processos' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_c8hh1qc8hh1qc8hh.png', label: 'Controle de Qualidade' },
-  { src: '/carrossel-pessoas/mural-12.webp', label: 'Operação Especializada' },
+  { src: '/carrossel-pessoas/mural-12.webp', label: 'Engenharia de Processos' },
   { src: '/carrossel-pessoas/mural-3.webp', label: 'Logística Avançada' },
   { src: '/carrossel-pessoas/mural-5.webp', label: 'Time de Manutenção' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_cbxedscbxedscbxe.png', label: 'Monitoramento 24h' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_eln9dmeln9dmeln9.png', label: 'Gestão Industrial' },
-  { src: '/carrossel-pessoas/Gemini_Generated_Image_isz5ufisz5ufisz5.png', label: 'Suporte Técnico' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_8fxyir8fxyir8fxy.png', label: 'Monitoramento 24h' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_c8hh1qc8hh1qc8hh.png', label: 'Gestão Industrial' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_cbxedscbxedscbxe.png', label: 'Suporte Técnico' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_eln9dmeln9dmeln9.png', label: 'Controle de Qualidade' },
+  { src: '/carrossel-pessoas/Gemini_Generated_Image_isz5ufisz5ufisz5.png', label: 'Engenharia de Moldes' },
 ];
 
 export default function App() {
@@ -404,17 +404,17 @@ export default function App() {
             <img 
               src="/logo-tech.png" 
               alt="Tech Plast" 
-              className="h-56 md:h-80 w-auto object-contain" 
+              className="h-40 md:h-80 w-auto max-w-full object-contain" 
             />
             <img 
               src="/logo-tamp.png" 
               alt="Tamp Plast" 
-              className="h-40 md:h-56 w-auto object-contain" 
+              className="h-28 md:h-56 w-auto max-w-full object-contain" 
             />
             <img 
               src="/logo-injetech.png" 
               alt="Injetech" 
-              className="h-24 md:h-36 w-auto object-contain" 
+              className="h-16 md:h-36 w-auto max-w-full object-contain" 
             />
           </div>
 
