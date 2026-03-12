@@ -377,10 +377,22 @@ export default function App() {
           </div>
 
           {/* Group Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-20 mb-32 grayscale opacity-60">
-            <img src="/logo-tech.png" alt="Tech Plast" className="h-16 w-auto" />
-            <img src="/logo-tamp.png" alt="Tamp Plast" className="h-20 w-auto" />
-            <img src="/logo-injetech.png" alt="Injetech" className="h-14 w-auto" />
+          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-32 mb-32">
+            <img 
+              src="/logo-tech.png" 
+              alt="Tech Plast" 
+              className="h-24 md:h-32 w-auto transition-all duration-500 hover:scale-110" 
+            />
+            <img 
+              src="/logo-tamp.png" 
+              alt="Tamp Plast" 
+              className="h-28 md:h-40 w-auto transition-all duration-500 hover:scale-110" 
+            />
+            <img 
+              src="/logo-injetech.png" 
+              alt="Injetech" 
+              className="h-20 md:h-28 w-auto transition-all duration-500 hover:scale-110" 
+            />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
