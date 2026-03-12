@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle, Zap } from 'lucide-react';
+import { Factory, Settings, Cpu, Package, ArrowRight, Phone, Mail, MapPin, Menu, X, Play, Truck, Map, Users, CheckCircle2, ShieldCheck, Globe, Instagram, Linkedin, MessageCircle, Zap, Rocket, BarChart3, Shield, Layers, Droplets } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/5511931463758?text=' + encodeURIComponent('Olá! Vim pelo site da Injetech e gostaria de saber mais sobre as soluções em injeção plástica.');
 const MAPS_URL = 'https://maps.app.goo.gl/7ETQvJJ1ZzDQsen58';
@@ -25,7 +25,10 @@ export default function App() {
 
   const navLinks = [
     { name: 'A Empresa', href: '#sobre' },
+    { name: 'Parceria', href: '#parceria' },
+    { name: 'Benefícios', href: '#beneficios' },
     { name: 'Pilares', href: '#pilares' },
+    { name: 'Setores', href: '#setores' },
     { name: 'Customização', href: '#customizacao' },
     { name: 'Logística', href: '#logistica' },
     { name: 'Localização', href: '#localizacao' },
@@ -268,7 +271,142 @@ export default function App() {
         </div>
       </section>
 
-      {/* 2. Pilares (Stats) - Modern Clean Cards */}
+      {/* Como Funciona a Parceria */}
+      <section id="parceria" className="py-48 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-32">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-black text-brand-dark-alt tracking-tighter mb-4"
+            >
+              COMO FUNCIONA A PARCERIA
+            </motion.h2>
+            <div className="w-24 h-2 bg-brand-primary mx-auto rounded-full" />
+          </div>
+
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 hidden lg:block" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
+              {[
+                { step: "1. Engenharia", desc: "Cliente fornece o molde ou o projeto.", icon: Settings },
+                { step: "2. Produção", desc: "Injetech assume a injeção em massa.", icon: Factory },
+                { step: "3. Qualidade", desc: "Rigidíssimo controle de processo.", icon: ShieldCheck },
+                { step: "4. Logística", desc: "Entrega programada para a sua linha.", icon: Truck },
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex flex-col items-center text-center relative z-20"
+                >
+                  <div className="w-32 h-32 rounded-full bg-white border-[6px] border-brand-primary/20 flex items-center justify-center mb-8 shadow-xl group hover:border-brand-primary transition-all duration-500">
+                    <div className="w-24 h-24 rounded-full bg-brand-primary flex items-center justify-center text-white">
+                      <item.icon className="w-10 h-10" />
+                    </div>
+                  </div>
+                  <h4 className="text-xl font-bold text-brand-dark mb-2">{item.step}</h4>
+                  <p className="text-slate-500 font-medium max-w-[200px]">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefícios Estratégicos */}
+      <section id="beneficios" className="py-48 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="mb-24">
+            <motion.h2 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-black text-brand-dark-alt tracking-tighter mb-4"
+            >
+              BENEFÍCIOS ESTRATÉGICOS
+            </motion.h2>
+            <div className="w-24 h-2 bg-brand-primary rounded-full" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Zero CAPEX", desc: "Escale a sua operação imediatamente sem imobilizar capital em novas máquinas injetoras.", icon: CheckCircle2 },
+              { title: "Capacidade Imediata", desc: "Ative novas linhas de montagem sem esperar longos prazos de importação ou setup industrial.", icon: Rocket },
+              { title: "Escala Sob Demanda", desc: "Custos atrelados apenas à produção real. Ganhe margem quando houver ociosidade de mercado.", icon: BarChart3 },
+              { title: "Risco Operacional Reduzido", desc: "Nós assumimos a complexidade da manufatura plástica, equipe técnica, manutenção e falhas.", icon: Shield },
+            ].map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex gap-8 items-start group hover:shadow-xl transition-all duration-500"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary flex-shrink-0 group-hover:bg-brand-primary group-hover:text-white transition-all">
+                  <benefit.icon className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-black text-brand-dark mb-4">{benefit.title}</h3>
+                  <p className="text-slate-600 font-medium leading-relaxed">{benefit.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Setores Atendidos pelo Grupo */}
+      <section id="setores" className="py-48 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <div className="mb-24">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-black text-brand-dark-alt tracking-tighter mb-4"
+            >
+              SETORES ATENDIDOS PELO GRUPO
+            </motion.h2>
+            <div className="w-24 h-2 bg-brand-primary mx-auto rounded-full" />
+          </div>
+
+          {/* Group Logos */}
+          <div className="flex flex-wrap items-center justify-center gap-20 mb-32 grayscale opacity-60">
+            <img src="/logo-tech.png" alt="Tech Plast" className="h-16 w-auto" />
+            <img src="/logo-tamp.png" alt="Tamp Plast" className="h-20 w-auto" />
+            <img src="/logo-injetech.png" alt="Injetech" className="h-14 w-auto" />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { name: "AUTOMOTIVO", icon: Factory },
+              { name: "BEBIDAS & FOOD", icon: Package },
+              { name: "EMBALAGENS", icon: Layers },
+              { name: "LIMPEZA", icon: Droplets },
+              { name: "LOGÍSTICA", icon: Truck },
+            ].map((sector, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-6 group hover:shadow-xl transition-all h-64 relative overflow-hidden"
+              >
+                <sector.icon className="w-12 h-12 text-brand-dark group-hover:text-brand-primary transition-colors" />
+                <span className="text-sm font-black text-brand-dark-alt tracking-wider text-center">{sector.name}</span>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section id="pilares" className="py-48 bg-brand-muted relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
         
